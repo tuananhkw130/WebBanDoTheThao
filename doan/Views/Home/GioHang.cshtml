@@ -1,0 +1,67 @@
+﻿@model IList<View_GioHang_SanPham>
+
+    @section Styles {
+		<link rel="stylesheet" type="text/css" href="~/styles/main_styles.css">
+		<link rel="stylesheet" type="text/css" href="~/styles/responsive.css">
+		<link rel="stylesheet" type="text/css" href="~/cart.css">
+	}
+
+	@section Scripts {
+		<script src="~/js/custom.js"></script>
+	}
+
+<div class="container" style="margin-top: 150px; padding: 50px 0;">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="shoping__cart__table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="shoping__product">Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            long TongTienGioHang = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            long tongtiensp = (item.Gia * item.SoLuong) ?? 0;
+                            TongTienGioHang = tongtiensp + TongTienGioHang;
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <img src="@item.Anh" alt="" width="100">
+                                    <h5>@item.TenSanPham</h5>
+                                </td>
+                                <td class="shoping__cart__price">
+                                    $@item.Gia.ToString("#,##0.00")
+                                </td>
+                                <td class="shoping__cart__quantity">
+                                    @item.SoLuong
+                                </td>
+                                <td class="shoping__cart__total">
+                                    $@tongtiensp.ToString("#,##0.00")
+                                </td>
+                                <td class="shoping__cart__total">
+                                    <a asp-action="XoaKhoiGioHang" asp-route-id="@item.ID">Xoá</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="shoping__cart__btns">
+                <a asp-controller="Home" asp-action="CuaHang" class="primary-btn cart-btn" style="background: #007bff; color: #fff;">Tiếp tục mua</a>
+            </div>
+        </div>
+    </div>
+</div>

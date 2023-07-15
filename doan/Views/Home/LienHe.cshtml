@@ -1,0 +1,156 @@
+﻿
+@model LienHe
+
+@section Styles {
+	<link rel="stylesheet" type="text/css" href="~/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="~/styles/contact_styles.css">
+	<link rel="stylesheet" type="text/css" href="~/styles/contact_responsive.css">
+}
+
+@section Scripts {
+	<script src="~/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script src="~/js/contact_custom.js"></script>
+}
+
+
+
+<div class="hamburger_menu">
+		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+		<div class="hamburger_menu_content text-right">
+			<ul class="menu_top_nav">
+				<li class="menu_item has-children">
+					<a href="#">
+						usd
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection">
+						<li><a href="#">cad</a></li>
+						<li><a href="#">aud</a></li>
+						<li><a href="#">eur</a></li>
+						<li><a href="#">gbp</a></li>
+					</ul>
+				</li>
+				<li class="menu_item has-children">
+					<a href="#">
+						English
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection">
+						<li><a href="#">French</a></li>
+						<li><a href="#">Italian</a></li>
+						<li><a href="#">German</a></li>
+						<li><a href="#">Spanish</a></li>
+					</ul>
+				</li>
+				<li class="menu_item has-children">
+					<a href="#">
+						My Account
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection">
+						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+					</ul>
+				</li>
+				<li class="menu_item"><a href="#">home</a></li>
+				<li class="menu_item"><a href="#">shop</a></li>
+				<li class="menu_item"><a href="#">promotion</a></li>
+				<li class="menu_item"><a href="#">pages</a></li>
+				<li class="menu_item"><a href="#">blog</a></li>
+				<li class="menu_item"><a href="#">contact</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="container contact_container">
+		<div class="row">
+			<div class="col">
+
+				<!-- Breadcrumbs -->
+
+				<div class="breadcrumbs d-flex flex-row align-items-center">
+					<ul>
+						<li><a href="/">Trang chủ</a></li>
+						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Liên hệ</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Map Container -->
+
+		<div class="row">
+			<div class="col">
+				<div id="google_map">
+					<div class="map_container">
+						<div id="map">
+
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15120.441391117512!2d105.6957497!3d18.6590436!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139cddf0bf20f23%3A0x86154b56a284fa6d!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBWaW5o!5e0!3m2!1svi!2s!4v1681396718860!5m2!1svi!2s" style="border:0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Contact Us -->
+
+		<div class="row">
+
+			<div class="col-lg-6 contact_col">
+				<div class="contact_contents">
+					<h1>Liên hệ chúng tôi</h1>
+					<p>Có nhiều cách để liên hệ với chúng tôi. Bạn có thể gửi cho chúng tôi một dòng, gọi cho chúng tôi hoặc gửi email, chọn những gì phù hợp với bạn nhất.</p>
+					<div>
+						<p>0937.123.456</p>
+						<p>coloshop@gmail.com</p>
+					</div>
+					<div>
+						<p>Thành phố Vinh</p>
+					</div>
+					<div>
+						<p>Mở cửa: 8.00-21.00 T2-T7</p>
+						
+					</div>
+				</div>
+
+				<!-- Follow Us -->
+
+				@*<div class="follow_us_contents">
+					<h1>Follow Us</h1>
+					<ul class="social d-flex flex-row">
+						<li><a href="#" style="background-color: #3a61c9"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" style="background-color: #41a1f6"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" style="background-color: #fb4343"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+						<li><a href="#" style="background-color: #8f6247"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>*@
+
+			</div>
+
+			<div class="col-lg-6 get_in_touch_col">
+				<div class="get_in_touch_contents">
+					<h1>Thông tin liên hệ</h1>
+					<p>Mọi vấn đề của bạn, chúng tôi sẽ xử lí sớm nhất có thể</p>
+					
+					<form method="post" asp-action="XLLienHe">
+						<div>
+							<input id="input_name" class="form_input input_name input_ph" type="text" asp-for="Ten" placeholder="Tên" required="required" >
+							<input id="input_email" class="form_input input_email input_ph" type="email" asp-for="Email" placeholder="Email" required="required" >
+							<input id="input_website" class="form_input input_website input_ph" type="text" asp-for="TieuDe" placeholder="Tiêu đề" required="required">
+							<textarea id="input_message" class="input_ph input_message" asp-for="NoiDung" placeholder="Nội dung" rows="3"></textarea>
+						</div>
+						@if (TempData["msg"] != null) {
+								<div id="form-message-success" style="display: block !important; color:green; font-size:18px;" class="mb-4">
+								Tin nhắn của bạn đã được gửi
+								</div>
+							}
+						<div>
+							<button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">Gửi</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>

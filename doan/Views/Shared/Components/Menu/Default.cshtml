@@ -1,0 +1,9 @@
+﻿@using doan.Utilities
+@model IList<Menu>
+
+<ul class="navbar_menu">
+	@foreach (var item in Model.OrderBy(n => n.ThuTu)) 
+	{
+		<li><a href="/@item.ControllerName/@item.ActionName">@item.Ten</a></li>
+	}
+</ul>

@@ -1,0 +1,47 @@
+﻿@using doan.Utilities
+@model IList<SanPham>
+
+<div class="new_arrivals">
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<div class="section_title new_arrivals_title">
+					<h2>Sản Phẩm Mới</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col text-center">
+				<div class="new_arrivals_sorting">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+					<!-- Product 1 -->
+					@foreach(var item in Model){
+						<div class="product-item men">
+							<div class="product discount product_filter">
+								<div class="product_image">
+									<img src="@item.Anh" alt="">
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><a asp-action="ChiTietSanPham" asp-route-id="@item.ID">@item.TenSanPham</a></h6>
+									<div class="product_price">$@item.Gia</div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a asp-controller="Home" asp-action="ChiTietSanPham" asp-route-id="@item.ID">Xem chi tiết</a></div>
+						</div>
+
+					}
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
